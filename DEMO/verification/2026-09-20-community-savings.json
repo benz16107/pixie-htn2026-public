@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-20",
+  "scope": "Expo community navigation, witness credits, and warm palette",
+  "checks": {
+    "typescript": "passed",
+    "unitTests": "8 passed, including 4 witness-credit tests",
+    "iosJavaScriptExport": "passed",
+    "webStaticExport": "21 routes passed",
+    "browser": {
+      "pendingExcluded": true,
+      "acceptedEvidenceUpdatesSavings": true,
+      "allocationPersistsAfterReload": true,
+      "sharedBalanceNotDoubleCounted": true,
+      "autoPriceExplorerShowsNetPayment": true,
+      "witnessEntryAvailableForHome": true,
+      "reviewReversalRemovesCredit": true,
+      "offlineBalanceMarkedUnavailable": true,
+      "retryRestoresBalance": true,
+      "widthsWithoutOverflow": [
+        320,
+        390,
+        430
+      ],
+      "pageErrors": [],
+      "homePriceExplorer": {
+        "estimate": 17.42,
+        "credit": 2,
+        "simulatedNextPayment": 15.42
+      }
+    }
+  },
+  "screenshots": "docs/assets/intact/community",
+  "limits": [
+    "Credits are simulated one-time payment reductions, not an insurer-approved discount or change to the quoted premium.",
+    "Credits require accepted bystander evidence on another person's incident, not just a submitted report or claim.",
+    "Native appearance and widgets require a physical-device check."
+  ]
+}

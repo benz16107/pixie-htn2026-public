@@ -1,0 +1,34 @@
+import Link from 'next/link';
+import { connection } from 'next/server';
+import { api } from '@/lib/api';
+import { money } from '@/components/bits';
+import styles from './Validation.module.css';
+
+const value=(n:number|null|undefined,format:(n:number)=>string=String)=>n==null?'Not measured':format(n);
+const interval=(s:{lo:number;hi:number})=>s.lo===s.hi?String(s.lo):`${s.lo}–${s.hi}`;
+
+export default async function BacktestPage() {
+  await connection();const b=await api.backtest();
+  return <main className={styles.page}>
+    <header className={styles.header}><div><p className="kicker text-ochre">Commercial property · historical backtest</p><h1>Validation</h1><p>What the guideline would have decided, and what happened afterwards.</p></div><a href="/api/atlas/backtest" target="_blank" rel="noreferrer">Open report JSON</a></header>
+    <dl className={styles.metrics}>
+      <div><dt>Bound property policies</dt><dd>{b.b1.n}</dd><p>Historical outcome cohort</p></div>
+      <div><dt>Premium</dt><dd>{money(b.b1.all.premium)}</dd><p>Across {b.b1.all.n} policies</p></div>
+      <div><dt>Incurred losses</dt><dd>{money(b.b1.all.incurred)}</dd><p>Paid plus reserved, including expense</p></div>
+      <div><dt>Aggregate loss ratio</dt><dd>{b.b1.all.lossRatio.toFixed(2)}×</dd><p>Incurred divided by premium</p></div>
+    </dl>
+    {b.knownMisses?.map(m=><section className={styles.miss} key={m.policy} aria-labelledby={`miss-${m.policy}`}><div><span className="kicker text-ochre">Known miss · engine would accept</span><h2 id={`miss-${m.policy}`}>{m.policy}</h2><p>The policy met appetite when it arrived. Its later incurred losses show why appetite fit alone cannot establish a profitable risk.</p></div><dl><div><dt>Incurred losses</dt><dd className="text-rust">{m.incurred.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0})}</dd></div><div><dt>Premium</dt><dd>{m.premium.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0})}</dd></div><div><dt>Loss ratio</dt><dd>{m.premium>0?(m.incurred/m.premium).toFixed(2)+'×':'Not available'}</dd></div></dl></section>)}
+    <div className={styles.grid}>
+      <section className={styles.section}><h2>Outcomes by engine decision</h2><p className={styles.description}>Each policy was scored as of its received date. Loss history includes only earlier claims.</p><div className={styles.tableWrap}><table><thead><tr><th>Decision</th><th>Policies</th><th>Premium</th><th>Incurred</th><th>Loss ratio</th></tr></thead><tbody>{b.b1.tiers.map(t=><tr key={t.tier}><td className={t.tier==='accept'?'text-moss':t.tier==='decline'?'text-rust':'text-ochre'}>{t.tier.replaceAll('_',' ')}</td><td>{value(t.n)}</td><td>{value(t.premium,money)}</td><td>{value(t.incurred,money)}</td><td>{t.n===0?'No policies':value(t.lossRatio,n=>n.toFixed(2)+'×')}</td></tr>)}</tbody><tfoot><tr><td>All property</td><td>{b.b1.all.n}</td><td>{money(b.b1.all.premium)}</td><td>{money(b.b1.all.incurred)}</td><td>{b.b1.all.lossRatio.toFixed(2)}×</td></tr></tfoot></table></div><p className={styles.caption}>Small historical sample. These results do not establish predictive accuracy or production readiness.</p></section>
+      <section className={styles.section}><h2>Where the book breaks the guideline</h2><p className={styles.description}>Bound policies that each written factor would decline. A policy can appear under several factors.</p>{b.b4.factors.map(f=><div className={styles.factor} key={f.factor}><span>{f.factor}</span><span><i style={{width:`${b.b4.n>0?(f.declines??0)/b.b4.n*100:0}%`}}/></span><b>{value(f.declines)} / {b.b4.n}</b></div>)}</section>
+    </div>
+    <section className={styles.section}><h2>What the existing enrichment changed</h2><p className={styles.description}>The recorded comparison switches FEMA, USGS, weather and portfolio adjustments on and off across {b.b3.n} scored submissions.</p>
+      <div className={styles.enrichment}><div><strong>{value(b.b3.changed)}</strong><span>decision tiers changed</span></div><div><strong>{value(b.b3.intervalMoved)} / {b.b3.n}</strong><span>score intervals moved</span></div><div><strong>{value(b.b3.medianAbsMidpointMove)}</strong><span>points, median absolute midpoint move</span></div><div><strong>{value(b.b3.rankChanged)} / {value(b.b3.rankQueueN)}</strong><span>open submissions reranked</span></div></div>
+      <p className={styles.description}>{b.b3.changed==null?'The enrichment comparison has not been run.':b.b3.changedNote}</p>
+      <div className={styles.tableWrap}><table><thead><tr><th>Open submission</th><th>Largest contribution</th><th>Without enrichment</th><th>With enrichment</th><th>Midpoint change</th></tr></thead><tbody>{b.b3.topMoversOpenQueue.map(m=><tr key={m.caseId}><td><Link href={`/cases/${m.caseId}`}>Case #{m.caseId}</Link></td><td>{m.factor.replaceAll('_',' ')} · ×{m.multiplier}</td><td>{interval(m.without)}</td><td>{interval(m.with)}</td><td>{m.midpointMove>0?'+':''}{m.midpointMove}</td></tr>)}</tbody></table></div>
+      <p className={styles.scope}>The new <Link href="/map?layer=heat">county and climate map layers</Link> are context only. This report does not test them, and they do not change the appetite score.</p>
+    </section>
+    <details className={styles.details}><summary>Human decline reasons · {b.b2.n} decisions</summary><p>{b.b2.excluded} broker withdrawals are excluded. This cohort spans several business lines; routing a case outside the property guideline is not agreement with a human decline.</p><div className={styles.tableWrap}><table><thead><tr><th>Human reason</th><th>Cases</th><th>Business lines</th><th>Desk responsibility</th><th>Matching reason</th></tr></thead><tbody>{b.b2.rows.map(r=><tr key={r.reason}><td>{r.reason.replaceAll('_',' ')}</td><td>{r.n}</td><td>{Object.entries(r.lines).map(([line,n])=>`${line} ${n}`).join(', ')}</td><td>{r.excluded?'Excluded':r.lane}</td><td>{r.excluded?'Excluded':value(r.deskAgrees)}</td></tr>)}</tbody></table></div></details>
+    <details className={styles.details}><summary>Method, cohorts & limitations</summary><p>Outcome cohort: {b.b1.n} bound property policies. Status mix: {Object.entries(b.b1.statuses).map(([status,n])=>`${status.replaceAll('_',' ')} ${n}`).join(', ')}. Enrichment cohort: {b.b3.n} scored property submissions. These are different denominators.</p><p>Loss ratio is incurred losses divided by premium, not a probability of a claim. The uncertainty range comes from written rules and incomplete facts; it is not a statistically calibrated confidence interval.</p><p>Pre-registration reference: {b.preregistration?<code>{b.preregistration}</code>:'No committed pre-registration reference is recorded.'}</p><p>Recorded backtest snapshot against the 2025 property guideline. Changing the current rulebook or adding map layers does not rerun this report. The report JSON contains the underlying policy and case rows.</p></details>
+  </main>;
+}

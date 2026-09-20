@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "demoOnly": true,
+  "label": "Bundled synthetic consumer-insurance data for the Pixie demo. Not carrier rates or live listings.",
+  "autoPricing": {
+    "baseAnnualCents": 118000,
+    "baseSource": "Illustrative base premium in api/fixtures/consumer_demo.json",
+    "annualKmMultipliers": {
+      "under_10000": 0.92,
+      "10000_20000": 1.0,
+      "over_20000": 1.12
+    },
+    "parkingMultipliers": {
+      "garage": 0.94,
+      "driveway": 1.0,
+      "street": 1.08
+    },
+    "deductibleMultipliers": {
+      "500": 1.08,
+      "1000": 1.0,
+      "2000": 0.91
+    },
+    "claimMultipliers": {
+      "0": 1.0,
+      "1": 1.22,
+      "2_plus": 1.45
+    }
+  },
+  "vehicles": [
+    {
+      "id": "corolla-le-2023",
+      "year": 2023,
+      "make": "Toyota",
+      "model": "Corolla LE",
+      "listingPrice": 25900,
+      "vehicleFactor": 0.92,
+      "source": "Bundled synthetic listing; compact vehicle class from the illustrative demo table"
+    },
+    {
+      "id": "cx5-gs-2022",
+      "year": 2022,
+      "make": "Mazda",
+      "model": "CX-5 GS",
+      "listingPrice": 30900,
+      "vehicleFactor": 1.04,
+      "source": "Bundled synthetic listing; compact SUV class from the illustrative demo table"
+    },
+    {
+      "id": "ioniq5-preferred-2024",
+      "year": 2024,
+      "make": "Hyundai",
+      "model": "IONIQ 5 Preferred",
+      "listingPrice": 48999,
+      "vehicleFactor": 1.12,
+      "source": "Bundled synthetic listing; EV repair-cost class from the illustrative demo table"
+    }
+  ],
+  "policySummaries": [
+    {
+      "id": "tenant-demo",
+      "product": "tenant",
+      "status": "active_demo",
+      "renewalDate": "2026-12-01",
+      "annualPremium": 240.0,
+      "coverages": [
+        "Contents $30,000",
+        "Liability $1,000,000",
+        "Deductible $1,000"
+      ],
+      "source": "Bundled synthetic policy summary"
+    },
+    {
+      "id": "auto-demo",
+      "product": "auto",
+      "status": "active_demo",
+      "renewalDate": "2027-02-15",
+      "annualPremium": 1680.0,
+      "coverages": [
+        "Third-party liability $2,000,000",
+        "Collision deductible $1,000",
+        "Comprehensive deductible $500"
+      ],
+      "source": "Bundled synthetic policy summary"
+    }
+  ]
+}

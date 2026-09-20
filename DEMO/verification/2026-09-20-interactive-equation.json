@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-20",
+  "feature": "Interactive equation and simplified navigation",
+  "url": "http://macserver:3100",
+  "checks": {
+    "production_build": "passed",
+    "typescript": "passed",
+    "targeted_lint": "passed",
+    "browser": "All seven terms, single disclosure, click toggle, close, keyboard and Escape, source details, method page, rulebook, removed header links/status and Ranges filter, legacy query fallback, desktop and mobile",
+    "browser_errors": []
+  },
+  "screenshots": [
+    "/tmp/pixie-equation-closed.png",
+    "/tmp/pixie-equation-hazard.png",
+    "/tmp/pixie-equation-method.png",
+    "/tmp/pixie-equation-mobile.png"
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "passed": true,
+  "checkedAt": "2026-09-20T09:27:04.350Z",
+  "root": "http://localhost:3102",
+  "colors": {
+    "background": "rgb(10, 13, 16)",
+    "title": "rgb(240, 164, 55)",
+    "font": "\"IBM Plex Sans Condensed\", \"IBM Plex Sans Condensed Fallback\", \"IBM Plex Sans Condensed\", system-ui, sans-serif"
+  },
+  "checks": [
+    "P toggles modal both ways",
+    "Underlying queue filter and DOM preserved",
+    "Case scenario and focused panel preserved",
+    "Slide index persists",
+    "Direct presentation returns to last demo route",
+    "D/A/N removed",
+    "Typing P is safe",
+    "Arrow/Home/End boundaries",
+    "Pixie fonts and color tokens",
+    "Nine slides at four viewports",
+    "No browser errors"
+  ],
+  "layouts": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 1,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 2,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 3,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 4,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 5,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 6,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 7,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 8,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "slide": 9,
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 768,
+      "scrollHeight": 768,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 1,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 2,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 3,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 4,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 5,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 6,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 7,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 8,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "slide": 9,
+      "width": 1280,
+      "scrollWidth": 1280,
+      "height": 588,
+      "scrollHeight": 588,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 1,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 2,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 3,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 4,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 5,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 798,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 6,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 7,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 792,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 8,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "slide": 9,
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 712,
+      "scrollHeight": 712,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 1,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 258,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 2,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 460,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 3,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 424,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 4,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 387,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 5,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 496,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 6,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 460,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 7,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 490,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 8,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 309,
+      "top": 48
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "slide": 9,
+      "width": 844,
+      "scrollWidth": 844,
+      "height": 258,
+      "scrollHeight": 387,
+      "top": 48
+    }
+  ],
+  "build": "Production build, TypeScript and targeted ESLint passed",
+  "serverPid": 52147,
+  "liveUrl": "http://macserver:3100/present",
+  "liveSmoke": "PASS: macserver:3100 P/P toggle retains filter and slide position"
+}

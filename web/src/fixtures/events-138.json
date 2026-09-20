@@ -1,0 +1,274 @@
+[
+ {
+  "id": "e01",
+  "caseId": "138",
+  "seq": 1,
+  "tMs": 0,
+  "actor": "lead",
+  "kind": "plan",
+  "body": {
+   "text": "Opened case 138: open, one flipper (premium), $2.1M. Depth: standard",
+   "depth": "standard",
+   "dispatch": [
+    "intake",
+    "appetite",
+    "hazard",
+    "portfolio"
+   ]
+  },
+  "refs": []
+ },
+ {
+  "id": "e02",
+  "caseId": "138",
+  "seq": 2,
+  "tMs": 400,
+  "actor": "appetite",
+  "kind": "assessment",
+  "body": {
+   "text": "Triage interval 57\u201384, straddles 70",
+   "score": {
+    "lo": 57,
+    "hi": 84
+   }
+  },
+  "refs": []
+ },
+ {
+  "id": "e03",
+  "caseId": "138",
+  "seq": 3,
+  "tMs": 4000,
+  "actor": "intake",
+  "kind": "tool_call",
+  "body": {
+   "text": "Parsed Insured.hq: 1 building, TIV $2,073,000",
+   "tool": "federato.query",
+   "args": {
+    "resource": "Insured",
+    "filter": {
+     "id": 7
+    },
+    "expand": [
+     "hq.buildings"
+    ]
+   },
+   "result": {
+    "rows": 1,
+    "tiv": 2073000,
+    "path": "Insured.hq \u2192 Location 19 \u2192 Building 35"
+   }
+  },
+  "refs": []
+ },
+ {
+  "id": "e04",
+  "caseId": "138",
+  "seq": 4,
+  "tMs": 6000,
+  "actor": "hazard",
+  "kind": "finding",
+  "body": {
+   "text": "Quake lookup skipped: FL, no M4+ within 50 km",
+   "skipped": "earthquake"
+  },
+  "refs": []
+ },
+ {
+  "id": "e05",
+  "caseId": "138",
+  "seq": 5,
+  "tMs": 9000,
+  "actor": "intake",
+  "kind": "finding",
+  "body": {
+   "text": "Premium missing, resolver: broker",
+   "fact": "premium",
+   "provenance": "missing",
+   "resolver": "broker"
+  },
+  "refs": []
+ },
+ {
+  "id": "e06",
+  "caseId": "138",
+  "seq": 6,
+  "tMs": 11000,
+  "actor": "appetite",
+  "kind": "finding",
+  "body": {
+   "text": "FL \u00b7 MNC \u00b7 2023: in appetite"
+  },
+  "refs": []
+ },
+ {
+  "id": "e07",
+  "caseId": "138",
+  "seq": 7,
+  "tMs": 18000,
+  "actor": "intake",
+  "kind": "tool_call",
+  "body": {
+   "text": "Premium est. $6,020\u2013$10,317 from 27 comps",
+   "tool": "estimate_premium",
+   "args": {
+    "line": "property",
+    "tiv": 2073000
+   },
+   "result": {
+    "n": 27,
+    "p25": 6020,
+    "p75": 10317
+   }
+  },
+  "refs": []
+ },
+ {
+  "id": "e08",
+  "caseId": "138",
+  "seq": 8,
+  "tMs": 24000,
+  "actor": "lead",
+  "kind": "ask",
+  "body": {
+   "text": "Ask Hazard: \"check FEMA zone for 138\"",
+   "question": "FEMA flood zone at 25.644, -80.207"
+  },
+  "refs": [],
+  "to": "hazard"
+ },
+ {
+  "id": "e09",
+  "caseId": "138",
+  "seq": 9,
+  "tMs": 28000,
+  "actor": "hazard",
+  "kind": "tool_call",
+  "body": {
+   "text": "FEMA NFHL point query",
+   "tool": "fema.flood_zone",
+   "args": {
+    "lat": 25.644,
+    "lng": -80.207
+   },
+   "result": {
+    "zone": "AE",
+    "cached": true
+   }
+  },
+  "refs": []
+ },
+ {
+  "id": "e10",
+  "caseId": "138",
+  "seq": 10,
+  "tMs": 31000,
+  "actor": "hazard",
+  "kind": "answer",
+  "body": {
+   "text": "Answer: zone AE, 1% annual"
+  },
+  "refs": [],
+  "to": "lead",
+  "inReplyTo": "e08"
+ },
+ {
+  "id": "e11",
+  "caseId": "138",
+  "seq": 11,
+  "tMs": 33000,
+  "actor": "portfolio",
+  "kind": "ask",
+  "body": {
+   "text": "Ask Hazard: which perils drive AE here?"
+  },
+  "refs": [],
+  "to": "hazard"
+ },
+ {
+  "id": "e12",
+  "caseId": "138",
+  "seq": 12,
+  "tMs": 35000,
+  "actor": "hazard",
+  "kind": "answer",
+  "body": {
+   "text": "Storm surge + rain; factor \u00d71.12"
+  },
+  "refs": [],
+  "to": "portfolio",
+  "inReplyTo": "e11"
+ },
+ {
+  "id": "e13",
+  "caseId": "138",
+  "seq": 13,
+  "tMs": 38000,
+  "actor": "portfolio",
+  "kind": "finding",
+  "body": {
+   "text": "2 active locations hold $57.4M within 30 km, \u22126",
+   "neighbourhoodTiv": 57354000,
+   "points": -6
+  },
+  "refs": []
+ },
+ {
+  "id": "e14",
+  "caseId": "138",
+  "seq": 14,
+  "tMs": 40000,
+  "actor": "appetite",
+  "kind": "assessment",
+  "body": {
+   "text": "Re-assessed with enrichment: 54\u201381",
+   "score": {
+    "lo": 54,
+    "hi": 81
+   }
+  },
+  "refs": []
+ },
+ {
+  "id": "e15",
+  "caseId": "138",
+  "seq": 15,
+  "tMs": 42000,
+  "actor": "system",
+  "kind": "verify_numbers",
+  "body": {
+   "text": "Explanation passed number check (8 of 8)",
+   "checked": 8
+  },
+  "refs": []
+ },
+ {
+  "id": "e16",
+  "caseId": "138",
+  "seq": 16,
+  "tMs": 47000,
+  "actor": "lead",
+  "kind": "decision",
+  "body": {
+   "text": "Refer: request premium from broker",
+   "kind": "refer",
+   "action": "Broker information requested"
+  },
+  "refs": [
+   "e10"
+  ]
+ },
+ {
+  "id": "e17",
+  "caseId": "138",
+  "seq": 17,
+  "tMs": 52000,
+  "actor": "system",
+  "kind": "budget_note",
+  "body": {
+   "text": "Run closed: 14 model calls, $0.31",
+   "calls": 14
+  },
+  "refs": []
+ }
+]

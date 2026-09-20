@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-20",
+  "scope": "Federato readability and Intact mobile accessibility",
+  "web_build": "passed",
+  "web_lint": "passed with generated MapLibre warnings",
+  "expo_types": "passed",
+  "expo_web_export": "passed",
+  "browser_checks": [
+    "The Federato needs-review queue contains the single unresolved submission",
+    "The portfolio shows a bundled United States outline, state labels, exposure cells, and submissions when external map tiles are blocked",
+    "The Expo address, about, and quote screens have no horizontal overflow at 390 by 844",
+    "An empty address submission scrolls to and focuses the address field and exposes an assertive associated error",
+    "Expo source links and their explanatory text appear as separate accessibility nodes"
+  ],
+  "notes": [
+    "The API and pricing engine were unchanged",
+    "The portfolio fallback was tested by blocking tiles.openfreemap.org",
+    "Physical phone capabilities were not reverified"
+  ]
+}

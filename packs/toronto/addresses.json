@@ -1,0 +1,9 @@
+{
+  "180 queen st w": {"address": "180 Queen St W", "lat": 43.6503, "lng": -79.3869},
+  "180 queen street west": {"address": "180 Queen St W", "lat": 43.6503, "lng": -79.3869},
+  "1100 queen st w": {"address": "1100 Queen St W", "lat": 43.6434853, "lng": -79.4228957},
+  "queen st w and ossington": {"address": "1100 Queen St W", "lat": 43.6434853, "lng": -79.4228957},
+  "queen and ossington": {"address": "1100 Queen St W", "lat": 43.6434853, "lng": -79.4228957},
+  "565 mcroberts ave": {"address": "565 McRoberts Ave", "lat": 43.6903801, "lng": -79.4594893},
+  "565 mcroberts ave basement": {"address": "565 McRoberts Ave", "lat": 43.6903801, "lng": -79.4594893}
+}

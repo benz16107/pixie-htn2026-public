@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "demoOnly": true,
+  "label": "Synthetic Toronto route contexts for the Pixie coaching demo. These are attention-demand examples, not insurance rating territories.",
+  "zones": [
+    {
+      "id": "school_approach_demo",
+      "label": "School approach",
+      "contextType": "school_approach",
+      "areaLabel": "Downtown Toronto demo area",
+      "contextScore": 72,
+      "bounds": { "south": 43.645, "west": -79.4, "north": 43.655, "east": -79.38 },
+      "source": "Bundled synthetic school-approach context in api/fixtures/driving_context_demo.json"
+    },
+    {
+      "id": "dense_intersection_demo",
+      "label": "Dense intersection and building corridor",
+      "contextType": "dense_intersection_building_corridor",
+      "areaLabel": "Downtown Toronto demo area",
+      "contextScore": 68,
+      "bounds": { "south": 43.635, "west": -79.425, "north": 43.67, "east": -79.355 },
+      "source": "Bundled synthetic dense-corridor context in api/fixtures/driving_context_demo.json"
+    },
+    {
+      "id": "lower_complexity_demo",
+      "label": "Lower-complexity corridor",
+      "contextType": "lower_complexity_corridor",
+      "areaLabel": "North Toronto demo area",
+      "contextScore": 90,
+      "bounds": { "south": 43.67, "west": -79.6, "north": 43.86, "east": -79.1 },
+      "source": "Bundled synthetic lower-complexity context in api/fixtures/driving_context_demo.json"
+    }
+  ],
+  "scoring": {
+    "startingScore": 100,
+    "speedingPenaltyPerEventPer100Km": 1.2,
+    "speedingPenaltyCap": 40,
+    "hardBrakePenaltyPerEventPer100Km": 0.8,
+    "hardBrakePenaltyCap": 30,
+    "behaviorWeight": 0.75,
+    "routeContextWeight": 0.25,
+    "outsideDemoContextScore": 80,
+    "source": "Illustrative coaching formula in api/fixtures/driving_context_demo.json"
+  }
+}

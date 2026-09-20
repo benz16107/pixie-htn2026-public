@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-20",
+  "url": "http://macserver:3100/cases/138",
+  "build": "Next.js production webpack build and TypeScript passed",
+  "lint": "Targeted ESLint passed",
+  "browser": "Headless Google Chrome, 1440x1000 and 390x844",
+  "checks": [
+    "Default four panels",
+    "Focus and Escape",
+    "Numeric what-if and reset",
+    "3D view and orbit controls",
+    "Keyboard reorder persisted after reload",
+    "Native drag and drop",
+    "Full-width panel",
+    "Hide and restore panels",
+    "All nine panels on case 138",
+    "Site map resize in focus",
+    "Agent replay and skip",
+    "Challenger risk expansion on case 126",
+    "Portfolio 3D, flat, peril filter, concentration zoom and whole book",
+    "Mobile page has no horizontal overflow",
+    "Offline Census basemap when remote tiles fail",
+    "Computed scenario table without WebGL",
+    "Clickable portfolio SVG without WebGL"
+  ],
+  "runtime_errors": [],
+  "scope": "Presentation and client interactions. No new scoring rules, synthetic cases, saved scenario mutations, or outbound messages."
+}

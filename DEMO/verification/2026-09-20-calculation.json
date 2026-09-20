@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-20",
+  "feature": "Per-submission calculation tab",
+  "url": "http://macserver:3100/cases/138",
+  "checks": {
+    "engine_and_explanation_tests": 29,
+    "scored_commercial_equations_reconciled": 38,
+    "production_build": "passed",
+    "targeted_lint": "passed",
+    "browser": "desktop and mobile; equation, evidence expansion, multipliers, premium estimate, JSON, what-if navigation, routed and unenriched cases",
+    "browser_errors": []
+  },
+  "case138": {
+    "raw": {
+      "lo": 9,
+      "hi": 9
+    },
+    "denominator": 12,
+    "afterCaps": {
+      "lo": 30,
+      "hi": 74.99999999999999
+    },
+    "exact": {
+      "lo": 29.74750757787879,
+      "hi": 74.74750757787879
+    },
+    "displayed": {
+      "lo": 30,
+      "hi": 75
+    }
+  }
+}

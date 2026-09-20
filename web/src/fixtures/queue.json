@@ -1,0 +1,516 @@
+[
+ {
+  "caseId": "114",
+  "insured": "Lakeside Medical Group LLC",
+  "line": "auto",
+  "state": "FL",
+  "status": "cleared",
+  "valueAtStake": 1000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "auto desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "115",
+  "insured": "Halcyon Metalworks Corp",
+  "line": "property",
+  "state": "CA",
+  "status": "declined",
+  "valueAtStake": 54397000,
+  "score": {
+   "lo": 15,
+   "hi": 30
+  },
+  "decision": {
+   "kind": "decline",
+   "because": [
+    "loss_history not_acceptable"
+   ],
+   "by": "human"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "123",
+  "insured": "Harrow & Finch PC",
+  "line": "cgl",
+  "state": "CA",
+  "status": "received",
+  "valueAtStake": 5000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "cgl desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "126",
+  "insured": "Lakeside Medical Group Group",
+  "line": "property",
+  "state": "TX",
+  "status": "cleared",
+  "valueAtStake": 35716000,
+  "score": {
+   "lo": 18,
+   "hi": 44
+  },
+  "decision": {
+   "kind": "decline",
+   "because": [
+    "state:TX not_acceptable",
+    "age:1948 not_acceptable"
+   ],
+   "by": "desk"
+  },
+  "issues": [
+   {
+    "kind": "duplicate_account",
+    "severity": "block"
+   },
+   {
+    "kind": "broker_conflict",
+    "severity": "warn"
+   },
+   {
+    "kind": "premium_missing",
+    "severity": "warn"
+   }
+  ],
+  "deepDived": true,
+  "enrichmentDelta": -2
+ },
+ {
+  "caseId": "128",
+  "insured": "Vance & Reyes PC",
+  "line": "lpl",
+  "state": "TX",
+  "status": "received",
+  "valueAtStake": 1000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "lpl desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "133",
+  "insured": "Merrin Hale LLP",
+  "line": "property",
+  "state": "IL",
+  "status": "quoted",
+  "valueAtStake": 23279000,
+  "score": {
+   "lo": 12,
+   "hi": 38
+  },
+  "decision": {
+   "kind": "decline",
+   "because": [
+    "state:IL not_acceptable",
+    "age:1950 not_acceptable"
+   ],
+   "by": "desk"
+  },
+  "issues": [
+   {
+    "kind": "premium_missing",
+    "severity": "warn"
+   }
+  ],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "134",
+  "insured": "Willowbrook Stores Inc",
+  "line": "property",
+  "state": "TX",
+  "status": "quoted",
+  "valueAtStake": 24302000,
+  "score": {
+   "lo": 25,
+   "hi": 43
+  },
+  "decision": {
+   "kind": "decline",
+   "because": [
+    "state:TX not_acceptable"
+   ],
+   "by": "desk"
+  },
+  "issues": [
+   {
+    "kind": "limit_vs_tiv",
+    "severity": "warn"
+   },
+   {
+    "kind": "premium_missing",
+    "severity": "warn"
+   }
+  ],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "135",
+  "insured": "Vance & Reyes PC",
+  "line": "health",
+  "state": "TX",
+  "status": "quoted",
+  "valueAtStake": 2000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "health desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "137",
+  "insured": "Coastal Freight Systems LLC",
+  "line": "health",
+  "state": "CA",
+  "status": "quoted",
+  "valueAtStake": 25000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "health desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "138",
+  "insured": "Lumen Data Works Inc",
+  "line": "property",
+  "state": "FL",
+  "status": "cleared",
+  "valueAtStake": 2073000,
+  "score": {
+   "lo": 54,
+   "hi": 81
+  },
+  "decision": {
+   "kind": "open",
+   "straddles": 70,
+   "flippers": [
+    {
+     "fact": "premium",
+     "resolver": "broker"
+    }
+   ]
+  },
+  "issues": [
+   {
+    "kind": "premium_missing",
+    "severity": "warn"
+   }
+  ],
+  "deepDived": true,
+  "enrichmentDelta": -3
+ },
+ {
+  "caseId": "140",
+  "insured": "Torvald Precision Inc",
+  "line": "health",
+  "state": "NJ",
+  "status": "received",
+  "valueAtStake": 5000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "health desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "141",
+  "insured": "Lakeside Medical Group Group",
+  "line": "property",
+  "state": "TX",
+  "status": "quoted",
+  "valueAtStake": 35716000,
+  "score": {
+   "lo": 20,
+   "hi": 44
+  },
+  "decision": {
+   "kind": "decline",
+   "because": [
+    "state:TX not_acceptable",
+    "age:1948 not_acceptable"
+   ],
+   "by": "desk"
+  },
+  "issues": [
+   {
+    "kind": "duplicate_account",
+    "severity": "block"
+   },
+   {
+    "kind": "broker_conflict",
+    "severity": "warn"
+   },
+   {
+    "kind": "premium_missing",
+    "severity": "warn"
+   }
+  ],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "142",
+  "insured": "Vance & Reyes PC",
+  "line": "health",
+  "state": "TX",
+  "status": "cleared",
+  "valueAtStake": 5000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "health desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "143",
+  "insured": "Aperture Cloud Corp",
+  "line": "property",
+  "state": "WA",
+  "status": "cleared",
+  "valueAtStake": 26254000,
+  "score": {
+   "lo": 22,
+   "hi": 47
+  },
+  "decision": {
+   "kind": "decline",
+   "because": [
+    "state:WA not_acceptable"
+   ],
+   "by": "desk"
+  },
+  "issues": [
+   {
+    "kind": "stale_submission",
+    "severity": "block"
+   },
+   {
+    "kind": "premium_missing",
+    "severity": "warn"
+   }
+  ],
+  "deepDived": true,
+  "enrichmentDelta": -1
+ },
+ {
+  "caseId": "144",
+  "insured": "Brightwater Partners LLP",
+  "line": "cgl",
+  "state": "CA",
+  "status": "quoted",
+  "valueAtStake": 25000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "cgl desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "145",
+  "insured": "Aperture Cloud Corp",
+  "line": "cyber",
+  "state": "WA",
+  "status": "cleared",
+  "valueAtStake": 5000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "cyber desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "146",
+  "insured": "Redline Logistics Inc",
+  "line": "cgl",
+  "state": "IL",
+  "status": "received",
+  "valueAtStake": 2000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "cgl desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "148",
+  "insured": "Lakeside Medical Group LLC",
+  "line": "cgl",
+  "state": "FL",
+  "status": "cleared",
+  "valueAtStake": 1000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "cgl desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "151",
+  "insured": "Verdant Systems Corp",
+  "line": "cgl",
+  "state": "CA",
+  "status": "received",
+  "valueAtStake": 1000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "cgl desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "155",
+  "insured": "Ironline Builders Corp",
+  "line": "health",
+  "state": "CA",
+  "status": "quoted",
+  "valueAtStake": 2000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "health desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "157",
+  "insured": "Cedar Valley Health LLC",
+  "line": "auto",
+  "state": "CA",
+  "status": "received",
+  "valueAtStake": 25000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "auto desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ },
+ {
+  "caseId": "158",
+  "insured": "Pellier Industrial Inc",
+  "line": "auto",
+  "state": "TN",
+  "status": "received",
+  "valueAtStake": 10000000,
+  "score": {
+   "lo": 0,
+   "hi": 0
+  },
+  "decision": {
+   "kind": "routed",
+   "to": "auto desk",
+   "because": "no 2025 guideline for this line"
+  },
+  "issues": [],
+  "deepDived": false,
+  "enrichmentDelta": 0
+ }
+]

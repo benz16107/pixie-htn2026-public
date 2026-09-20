@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-20",
+  "scope": "Connected Intact driver, bystander and insurer evidence",
+  "verification": {
+    "api": "5 evidence tests plus 14 existing consumer, driving and tenant tests passed",
+    "mobile": "TypeScript; Expo Doctor 21/21; web and iOS JavaScript exports, 21 routes",
+    "web": "Scoped ESLint passed; isolated production build and TypeScript passed",
+    "end_to_end": {
+      "separate_driver_and_witness_contexts": true,
+      "file_uploads": 2,
+      "review_and_credit_return_to_phone": true,
+      "zip_export_hashes_match": true,
+      "recovery_plan_import": true,
+      "repeatable_demo_and_confirmed_deletion": true,
+      "widths_checked": [
+        320,
+        390,
+        430
+      ],
+      "page_errors": []
+    }
+  },
+  "limits": [
+    "Browser verification, not physical native camera or video proof",
+    "Shared demo workspace without production identity, push, payments, or device attestation",
+    "Full shared-checkout web typecheck encountered an unfinished unrelated presentation page; Intact build verified in isolated baseline plus these changes",
+    "MCP handoff tools remain separate from uploaded incident files"
+  ]
+}

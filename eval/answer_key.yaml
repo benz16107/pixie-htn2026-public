@@ -1,0 +1,51 @@
+# Answer key: written by the integrator from APPETITE_GUIDELINES.txt and the raw data,
+# computed independently of the engine (Sat 18:05). Bands: target | acceptable | not_acceptable | unknown.
+# Loss value = all claims (paid + reserve, indemnity + expense) on the insured's OTHER policies with
+# date_of_loss before the submission's received_date. TIV, build year (TIV-weighted) and construction
+# share come from Insured.hq buildings for unbound submissions and from the policy's exposure-unit
+# locations for bound ones. "okshare" = TIV share in JM / non-combustible / steel / masonry NC.
+cases:
+  - id: 138   # open, FL, Lumen Data Works
+    facts: {state: FL, tiv: 2073000, year_built: 2023.0, okshare: 1.0, loss_5y: 0, premium: missing}
+    bands: {line: acceptable, state: target, tiv: acceptable, year_built: target, construction: acceptable, loss: acceptable, premium: unknown, submission_type: acceptable}
+    decision: open
+    flippers: [premium]          # resolver: broker (estimate from comps falls under the $50K floor)
+  - id: 126   # open, TX, Lakeside Medical (duplicate of 141 via another broker)
+    facts: {state: TX, tiv: 35716000, year_built: 1971.9, okshare: 0.83, loss_5y: 1437400}
+    bands: {state: not_acceptable, year_built: not_acceptable, loss: not_acceptable, tiv: acceptable, construction: acceptable}
+    decision: decline
+    issues: [duplicate_account]
+  - id: 141   # open, TX, same insured as 126
+    facts: {state: TX, tiv: 35716000, year_built: 1971.9, okshare: 0.83, loss_5y: 1451300}
+    bands: {state: not_acceptable, year_built: not_acceptable, loss: not_acceptable}
+    decision: decline
+    issues: [duplicate_account]
+  - id: 133   # open, IL
+    facts: {state: IL, tiv: 23279000, year_built: 1950.4, okshare: 0.77, loss_5y: 424500}
+    bands: {state: not_acceptable, year_built: not_acceptable, loss: not_acceptable}
+    decision: decline
+  - id: 134   # open, TX, requested limit $1M vs TIV $24.3M
+    facts: {state: TX, tiv: 24302000, year_built: 1997.0, okshare: 1.0, loss_5y: 1227300}
+    bands: {state: not_acceptable, year_built: acceptable, loss: not_acceptable, construction: acceptable}
+    decision: decline
+    issues: [limit_vs_tiv]
+  - id: 143   # open, WA, stale (insured later bound PR-2026-1031)
+    facts: {state: WA, tiv: 26254000, year_built: 2010.0, okshare: 1.0, loss_5y: 0}
+    bands: {state: not_acceptable, year_built: acceptable, tiv: acceptable, loss: acceptable}
+    decision: decline
+    issues: [stale_submission]
+  - id: 115   # declined by humans: loss_history
+    facts: {state: CA, tiv: 54397000, year_built: 1978.0, okshare: 0.6, loss_5y: 132600}
+    bands: {state: target, tiv: target, year_built: not_acceptable, construction: acceptable, loss: not_acceptable}
+    decision: decline
+    human_reason: loss_history
+  - id: policy-1081   # bound, new, CA: in appetite at submission (later produced $629,200 in claims: a backtest miss to show honestly)
+    facts: {state: CA, premium: 58800, tiv: 18492000, year_built: 2012.4, okshare: 0.75, loss_5y: 0, business_type: new}
+    bands: {state: target, premium: acceptable, tiv: acceptable, year_built: target, construction: acceptable, loss: acceptable, submission_type: acceptable}
+    decision: accept
+  - id: policy-1014   # bound, new, CA, premium above the ceiling
+    facts: {state: CA, premium: 703500, tiv: 124074000, year_built: 1991.2, okshare: 0.54, loss_5y: 176500}
+    bands: {state: target, premium: not_acceptable, tiv: acceptable, year_built: acceptable, construction: acceptable, loss: not_acceptable}
+    decision: decline
+  - id: 123   # open, cgl
+    decision: routed

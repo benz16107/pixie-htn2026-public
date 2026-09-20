@@ -1,0 +1,414 @@
+{
+ "Florida property locations with unsprinklered buildings over $5M TIV": {
+  "question": "Florida property locations with unsprinklered buildings over $5M TIV",
+  "rationale": "Building facts hang off Location.buildings, a reference array, so the query expands and unwinds it before filtering.",
+  "attempts": [
+   {
+    "payload": {
+     "resource": "Location",
+     "where": {
+      "state": "FL",
+      "buildings.sprinklered": false,
+      "buildings.tiv": {
+       "$gt": 5000000
+      }
+     }
+    },
+    "lint": [
+     "buildings is a reference array: the dot-path buildings.sprinklered matches nothing. Expand it and use $elemMatch or unwind."
+    ],
+    "rows": 0
+   },
+   {
+    "payload": {
+     "resource": "Location",
+     "where": {
+      "state": "FL",
+      "buildings": {
+       "$elemMatch": {
+        "sprinklered": false,
+        "tiv": {
+         "$gt": 5000000
+        }
+       }
+      }
+     }
+    },
+    "lint": [
+     "buildings is a reference: expand it before filtering on its fields."
+    ],
+    "rows": 0
+   },
+   {
+    "payload": {
+     "resource": "Location",
+     "where": {
+      "state": "FL"
+     },
+     "expand": {
+      "buildings": true
+     },
+     "unwind": "buildings",
+     "filter": {
+      "buildings.sprinklered": false,
+      "buildings.tiv": {
+       "$gt": 5000000
+      }
+     },
+     "select": [
+      "id",
+      "name",
+      "city",
+      "buildings.name",
+      "buildings.tiv",
+      "buildings.sprinklered"
+     ]
+    },
+    "lint": [],
+    "rows": 5
+   }
+  ],
+  "finalPayload": {
+   "resource": "Location",
+   "where": {
+    "state": "FL"
+   },
+   "expand": {
+    "buildings": true
+   },
+   "unwind": "buildings",
+   "filter": {
+    "buildings.sprinklered": false,
+    "buildings.tiv": {
+     "$gt": 5000000
+    }
+   },
+   "select": [
+    "id",
+    "name",
+    "city",
+    "buildings.name",
+    "buildings.tiv",
+    "buildings.sprinklered"
+   ]
+  },
+  "columns": [
+   "location",
+   "name",
+   "city",
+   "building",
+   "tiv",
+   "sprinklered"
+  ],
+  "rows": [
+   {
+    "location": 1,
+    "name": "South Yard 1",
+    "city": "Tampa",
+    "building": "Annex C",
+    "tiv": 31614000,
+    "sprinklered": false
+   },
+   {
+    "location": 9,
+    "name": "North Yard 2",
+    "city": "Miami",
+    "building": "Warehouse A",
+    "tiv": 17692000,
+    "sprinklered": false
+   },
+   {
+    "location": 10,
+    "name": "Central Facility 1",
+    "city": "Miami",
+    "building": "Service Garage A",
+    "tiv": 11191000,
+    "sprinklered": false
+   },
+   {
+    "location": 14,
+    "name": "Central Yard 3",
+    "city": "Miami",
+    "building": "Storage Shed A",
+    "tiv": 9038000,
+    "sprinklered": false
+   },
+   {
+    "location": 14,
+    "name": "Central Yard 3",
+    "city": "Miami",
+    "building": "Warehouse C",
+    "tiv": 18324000,
+    "sprinklered": false
+   }
+  ],
+  "answer": "5 unsprinklered buildings over $5M sit at Florida locations, the largest at $31,614,000 TIV.",
+  "runId": "ask-fl-unsprinklered"
+ },
+ "Open property submissions with no premium": {
+  "question": "Open property submissions with no premium",
+  "rationale": "Submission has no premium field at all, so every open property submission lacks one. The query lists them.",
+  "attempts": [
+   {
+    "payload": {
+     "resource": "Submission",
+     "where": {
+      "line_of_business": "property",
+      "status": {
+       "$in": [
+        "cleared",
+        "received",
+        "quoted"
+       ]
+      }
+     },
+     "expand": {
+      "insured": true
+     }
+    },
+    "lint": [],
+    "rows": 6
+   }
+  ],
+  "finalPayload": {
+   "resource": "Submission",
+   "where": {
+    "line_of_business": "property",
+    "status": {
+     "$in": [
+      "cleared",
+      "received",
+      "quoted"
+     ]
+    }
+   },
+   "expand": {
+    "insured": true
+   }
+  },
+  "columns": [
+   "submission_number",
+   "insured",
+   "status",
+   "received_date"
+  ],
+  "rows": [
+   {
+    "submission_number": "SUB-2025-00126",
+    "insured": "Lakeside Medical Group Group",
+    "status": "cleared",
+    "received_date": "2025-08-02"
+   },
+   {
+    "submission_number": "SUB-2026-00133",
+    "insured": "Merrin Hale LLP",
+    "status": "quoted",
+    "received_date": "2025-12-14"
+   },
+   {
+    "submission_number": "SUB-2025-00134",
+    "insured": "Willowbrook Stores Inc",
+    "status": "quoted",
+    "received_date": "2025-08-31"
+   },
+   {
+    "submission_number": "SUB-2025-00138",
+    "insured": "Lumen Data Works Inc",
+    "status": "cleared",
+    "received_date": "2025-08-19"
+   },
+   {
+    "submission_number": "SUB-2026-00141",
+    "insured": "Lakeside Medical Group Group",
+    "status": "quoted",
+    "received_date": "2025-11-25"
+   },
+   {
+    "submission_number": "SUB-2025-00143",
+    "insured": "Aperture Cloud Corp",
+    "status": "cleared",
+    "received_date": "2025-08-19"
+   }
+  ],
+  "answer": "6 open property submissions, none with a premium: 126, 133, 134, 138, 141 and 143.",
+  "runId": "ask-open-no-premium"
+ },
+ "Property policies over the $175K premium ceiling": {
+  "question": "Property policies over the $175K premium ceiling",
+  "rationale": "The 2025 guideline caps property premium at $175K; this counts how often the book already exceeds it.",
+  "attempts": [
+   {
+    "payload": {
+     "resource": "Policy",
+     "where": {
+      "line_of_business": "property",
+      "premium": {
+       "$grt": 175000
+      }
+     }
+    },
+    "lint": [],
+    "error": "[VALIDATION_ERROR] Unknown operator \"$grt\" {\"operator\":\"$grt\"}",
+    "rows": 0
+   },
+   {
+    "payload": {
+     "resource": "Policy",
+     "where": {
+      "line_of_business": "property",
+      "premium": {
+       "$gt": 175000
+      }
+     },
+     "select": [
+      "policy_number",
+      "insured",
+      "premium",
+      "status"
+     ],
+     "expand": {
+      "insured": true
+     },
+     "sort": {
+      "premium": -1
+     }
+    },
+    "lint": [],
+    "rows": 17
+   }
+  ],
+  "finalPayload": {
+   "resource": "Policy",
+   "where": {
+    "line_of_business": "property",
+    "premium": {
+     "$gt": 175000
+    }
+   },
+   "select": [
+    "policy_number",
+    "insured",
+    "premium",
+    "status"
+   ],
+   "expand": {
+    "insured": true
+   },
+   "sort": {
+    "premium": -1
+   }
+  },
+  "columns": [
+   "policy_number",
+   "insured",
+   "premium",
+   "status"
+  ],
+  "rows": [
+   {
+    "policy_number": "PR-2026-1014",
+    "insured": "Halcyon Metalworks Corp",
+    "premium": 703500,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2025-1001",
+    "insured": "Harbor Point Retail LLC",
+    "premium": 619900,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2025-1052",
+    "insured": "Summit Ridge Contracting Corp",
+    "premium": 471700,
+    "status": "expired"
+   },
+   {
+    "policy_number": "PR-2025-1061",
+    "insured": "Lakeside Medical Group Group",
+    "premium": 411000,
+    "status": "expired"
+   },
+   {
+    "policy_number": "PR-2025-1054",
+    "insured": "Marisol Kitchen LLC",
+    "premium": 378100,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2025-1004",
+    "insured": "Fielder's Table LLC",
+    "premium": 377300,
+    "status": "expired"
+   },
+   {
+    "policy_number": "PR-2026-1025",
+    "insured": "Keystone Structural Group",
+    "premium": 339700,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2025-1070",
+    "insured": "Verdant Systems Corp",
+    "premium": 321300,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2025-1033",
+    "insured": "Willowbrook Stores Inc",
+    "premium": 314000,
+    "status": "expired"
+   },
+   {
+    "policy_number": "PR-2025-1066",
+    "insured": "Harbor Point Retail LLC",
+    "premium": 274500,
+    "status": "non_renewed"
+   },
+   {
+    "policy_number": "PR-2025-1091",
+    "insured": "Cross Continental Carriers LLC",
+    "premium": 269200,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2025-1083",
+    "insured": "Ironline Builders Corp",
+    "premium": 266700,
+    "status": "expired"
+   },
+   {
+    "policy_number": "PR-2025-1092",
+    "insured": "Pellier Industrial LLC",
+    "premium": 266400,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2026-1047",
+    "insured": "Pellier Industrial Inc",
+    "premium": 262000,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2024-1090",
+    "insured": "Cross Continental Carriers LLC",
+    "premium": 188400,
+    "status": "non_renewed"
+   },
+   {
+    "policy_number": "PR-2026-1028",
+    "insured": "Brightwater Partners LLP",
+    "premium": 177500,
+    "status": "active"
+   },
+   {
+    "policy_number": "PR-2026-1098",
+    "insured": "Northwind Software Inc",
+    "premium": 175100,
+    "status": "active"
+   }
+  ],
+  "answer": "17 of 27 property policies carry premium above $175,000.",
+  "runId": "ask-over-ceiling"
+ }
+}

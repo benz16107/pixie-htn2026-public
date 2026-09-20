@@ -1,0 +1,31 @@
+id: toronto-tenant-2026
+h3_resolution: 9
+units: multipliers
+perils:
+  - id: break_ins
+    floor: 0.92
+    cap: 1.10
+  - id: basement_flooding
+    floor: 1.00
+    cap: 1.10
+  - id: fire
+    floor: 1.00
+    cap: 1.05
+total:
+  floor: 0.85
+  cap: 1.25
+shrinkage:
+  method: credibility weighting toward neighbourhood mean
+  prior_weight: 20
+  single_event_cap: 1.03
+sources:
+  break_ins:
+    name: Toronto Police Service Break and Enter Open Data
+    years: 2023-2026
+    url: https://data.torontopolice.on.ca/
+  basement_flooding:
+    name: City of Toronto Basement Flooding Study Areas
+    url: https://open.toronto.ca/dataset/basement-flooding-study-areas/
+  fire:
+    name: City of Toronto Fire Station Locations
+    url: https://open.toronto.ca/dataset/fire-station-locations/

@@ -1,0 +1,83 @@
+# 2025 Commercial Property Underwriting Guidelines, transcribed from
+# docs/federato/APPETITE_GUIDELINES.txt. Bands are checked in order per factor: first match wins,
+# so `target` (the narrower range) is listed before `acceptable` (the wider superset), and
+# `not_acceptable` is always the catch-all `else`.
+id: property_2025
+kind: commercial
+thresholds: {decline: 45, accept: 70}
+hard_fail_cap: 30
+points: {target: 2, acceptable: 1, not_acceptable: 0}
+risk_points: {max: 15}
+portfolio_points: {max_penalty: 10}
+required:
+  line: Submission.line_of_business
+  business_type: Policy.business_type
+  primary_admin: Location.state
+  tiv: Building.tiv
+  premium: Policy.premium
+  year_built: Building.year_built
+  construction_share: Building.construction_type
+  loss_5yr: Claim.paid_indemnity
+
+factors:
+  # Line of business: property only. Any other line routes to its own desk instead of scoring.
+  - fact: line
+    route_if_not_acceptable: true
+    hard_fail: false
+    bands:
+      acceptable: {in: [property]}
+      not_acceptable: {else: true}
+
+  # Submission type: new business only.
+  - fact: business_type
+    hard_fail: true
+    bands:
+      acceptable: {eq: new}
+      not_acceptable: {eq: renewal}
+
+  # Primary risk state.
+  - fact: primary_admin
+    hard_fail: true
+    bands:
+      target: {in: [OH, PA, MD, CO, CA, FL]}
+      acceptable: {in: [OH, PA, MD, CO, CA, FL, NC, SC, GA, VA, UT]}
+      not_acceptable: {else: true}
+
+  # TIV (Total Insured Value).
+  - fact: tiv
+    hard_fail: true
+    bands:
+      target: {between: [50000000, 100000000]}
+      acceptable: {lte: 150000000}
+      not_acceptable: {else: true}
+
+  # Total premium.
+  - fact: premium
+    hard_fail: true
+    bands:
+      target: {between: [75000, 100000]}
+      acceptable: {between: [50000, 175000]}
+      not_acceptable: {else: true}
+
+  # Building age (TIV-weighted).
+  - fact: year_built
+    hard_fail: true
+    bands:
+      target: {gt: 2010}
+      acceptable: {gt: 1990}
+      not_acceptable: {else: true}
+
+  # Construction type: >50% TIV in Joisted Masonry / Non-Combustible / Steel Frame / Masonry
+  # Non-Combustible is acceptable. No separate target band in the guideline table.
+  - fact: construction_share
+    hard_fail: true
+    bands:
+      acceptable: {share_gt: [0.5, [Joisted Masonry, Non-Combustible, Steel Frame, Masonry Non-Combustible]]}
+      not_acceptable: {else: true}
+
+  # 5-year loss value (the insured's other policies' claims before as_of).
+  - fact: loss_5yr
+    hard_fail: true
+    bands:
+      acceptable: {lt: 100000}
+      not_acceptable: {else: true}

@@ -1,0 +1,30 @@
+{
+  "caseId": "126",
+  "kind": "commercial",
+  "title": "Lakeside Medical Group Group",
+  "facts": [
+    { "id": "tiv", "label": "TIV", "display": "$35,716,000", "provenance": "known", "source": "Insured.hq → 3 buildings, Houston TX" },
+    { "id": "premium", "label": "Premium", "display": "missing", "provenance": "missing", "source": "open submissions carry no premium", "resolver": "broker" },
+    { "id": "year_built", "label": "Year built", "display": "1948–1998", "provenance": "known", "source": "3 buildings via Insured.hq" },
+    { "id": "state", "label": "State", "display": "TX", "provenance": "known", "source": "hq location" },
+    { "id": "broker", "label": "Broker", "display": "Ashford Specialty Group", "provenance": "known", "source": "Submission 126 (141 names Highland Risk Partners)" }
+  ],
+  "factors": [
+    { "fact": "state", "possible": ["not_acceptable"], "valueText": "TX", "provenance": "known" },
+    { "fact": "year_built", "possible": ["not_acceptable"], "valueText": "1948", "provenance": "known" },
+    { "fact": "premium", "possible": ["target", "acceptable", "not_acceptable"], "valueText": "missing", "provenance": "missing" }
+  ],
+  "score": { "lo": 18, "hi": 44 },
+  "scoreWithoutEnrichment": { "lo": 20, "hi": 46 },
+  "decision": { "kind": "decline", "because": ["state:TX not_acceptable", "age:1948 not_acceptable"], "by": "desk" },
+  "risk": { "factors": [{ "peril": "flood", "line": "tagged flood, Harris County", "applied": 1.08, "capped": false, "source": "Location hazard_tags", "citation": "Location.hazard_tags" }], "total": 1.08, "totalCapped": false, "skipped": [] },
+  "contradictions": [{ "good": ["broker 6 submitted 2025-08-02"], "bad": ["broker 1 submitted 2025-11-25 for the same insured"], "resolve": ["broker clearance: which broker holds the account"] }],
+  "explanation": "Texas property outside the 2025 state list, oldest building 1948. The same insured was submitted twice, as 126 and 141, by two brokers. Decline, and clear the broker conflict first.",
+  "explanationVerified": true,
+  "issues": [
+    { "kind": "duplicate_account", "severity": "block", "text": "Same insured as 141" },
+    { "kind": "broker_conflict", "severity": "warn", "text": "Ashford Specialty Group (126) vs Highland Risk Partners (141)" }
+  ],
+  "actions": [],
+  "site": { "lat": 29.761, "lng": -95.252 }
+}

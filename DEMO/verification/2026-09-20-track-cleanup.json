@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-20",
+  "scope": "sponsor track cleanup",
+  "api_tests": {
+    "passed": 140,
+    "command": "SENTRY_DSN_API= uv run pytest -q"
+  },
+  "web_build": "passed",
+  "expo_types": "passed",
+  "expo_web_export": "passed",
+  "browser_checks": [
+    "Federato queue loaded without console errors",
+    "Case 138 loaded without removed action or reply controls",
+    "Live desk loaded with the shorter evidence sequence",
+    "Intact overview loaded and switched back to Federato",
+    "Privacy and terms loaded without console errors",
+    "Expo web completed all three questions and displayed the quote at 390px",
+    "Expo quote exposed on-device speech and PDF actions"
+  ],
+  "api_checks": [
+    "All former sponsor-specific routes returned 404",
+    "Health returned 200",
+    "Dependency lock check passed"
+  ],
+  "notes": [
+    "Commercial replay remained the default",
+    "No fresh paid model call was made",
+    "Physical phone capabilities were not reverified"
+  ]
+}

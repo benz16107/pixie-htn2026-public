@@ -1,0 +1,31 @@
+.calculation { min-width: 0; padding: 20px 0; font-size: 13px; line-height: 1.6; }
+.header { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; justify-content: space-between; }
+.header h3 { font-size: 20px; font-weight: 600; }
+.header span, .provenance { color: var(--color-dim); font-size: 11px; }
+.interactiveEquation { margin-top: 12px; padding: 20px 0; font-family: var(--font-mono), monospace; font-size: clamp(14px, 1.4vw, 20px); line-height: 2.4; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.term { display: inline-block; margin: 0 2px; padding: 0 5px; color: var(--color-ochre); border-bottom: 1px dashed var(--color-ochre); cursor: pointer; line-height: 1.8; white-space: nowrap; }
+.term:hover, .term[aria-expanded="true"] { background: var(--color-land); border-bottom-style: solid; }
+.term:focus-visible { outline: 2px solid var(--color-ochre); outline-offset: 3px; }
+.calculation .hint { margin: 0; color: var(--color-dim); font-size: 11px; }
+.disclosure { margin-top: 18px; border-top: 1px solid var(--color-rule); padding-top: 18px; }
+.detailHeader { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.detailHeader button { padding: 4px 8px; color: var(--color-dim); border: 1px solid var(--color-rule); font-size: 11px; cursor: pointer; }
+.calculation section { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-rule); }
+.calculation h4 { margin-bottom: 10px; font-size: 16px; font-weight: 600; }
+.calculation p { margin: 8px 0; }
+.equation { margin: 16px 0; padding: 12px 16px; background: var(--color-land); font-family: var(--font-mono), monospace; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.equation span, .note { color: var(--color-dim); font-size: 12px; }
+.tableScroll { overflow-x: auto; margin: 16px 0; }
+.calculation table { width: 100%; min-width: 490px; border-collapse: collapse; font-size: 12px; text-align: left; }
+.calculation th { font-weight: 500; color: var(--color-dim); }
+.calculation td, .calculation th { padding: 12px 10px; border-bottom: 1px solid var(--color-rule); vertical-align: top; }
+.calculation td:first-child { width: 48%; }
+.calculation td:not(:first-child) { font-variant-numeric: tabular-nums; }
+.calculation strong { font-weight: 600; }
+.calculation a { color: var(--color-ochre); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.evidence summary { cursor: pointer; color: var(--color-ochre); margin-top: 8px; }
+.evidence p { overflow-wrap: anywhere; }
+.hazard { padding: 12px 0; border-bottom: 1px solid var(--color-rule); }
+.hazard summary { cursor: pointer; font-weight: 500; }
+.hazard b { margin-left: 12px; font-variant-numeric: tabular-nums; }
+@media (max-width: 600px) { .calculation { font-size: 12px; } .equation { padding: 10px; } }

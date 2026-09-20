@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-20",
+  "route": "/intact/present",
+  "script": "DEMO/11-INTACT-VIDEO.md",
+  "targetSeconds": 180,
+  "spokenWords": 346,
+  "slides": 8,
+  "checks": {
+    "typescript": "passed",
+    "productionBuild": "passed",
+    "slideNavigation": "passed",
+    "scriptPanel": "passed",
+    "recordingView": "passed",
+    "savedPositionAfterReload": "passed",
+    "overlayPreservesDemoInputs": "passed on production preview",
+    "federatoDeckRemainsSeparate": "passed on production preview",
+    "viewportWidths": [
+      1920,
+      1366,
+      390
+    ],
+    "horizontalOverflow": false,
+    "deepLinkAndHashNavigation": "passed on production preview",
+    "pageErrors": []
+  },
+  "captures": "docs/assets/intact/presentation",
+  "notes": [
+    "The slideshow uses actual product captures, not live embedded phone screens.",
+    "No video file or voiceover was generated. The script identifies the phone and web shots to record.",
+    "Native widget captures remain conditional on a verified signed iPhone build."
+  ]
+}

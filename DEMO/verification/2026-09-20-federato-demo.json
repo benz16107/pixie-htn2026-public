@@ -1,0 +1,43 @@
+{
+  "desk": "http://macserver:3100/queue",
+  "method": "http://macserver:3100/method",
+  "runtime": {
+    "web_copy": "/tmp/pixie-demo-web",
+    "reason": "Isolated from concurrent edits to the Intact components. Intact components in this build use their committed versions. Source changes remain in atlas/web.",
+    "api": "Existing localhost:8000, unchanged"
+  },
+  "data": {
+    "commercial_submissions": 158,
+    "property_scores": 38,
+    "routed": 120,
+    "nonzero_ranges": 1,
+    "range_case": "138"
+  },
+  "checks": {
+    "targeted_python_tests": "51 passed",
+    "typescript": "passed",
+    "production_build": "passed",
+    "eslint": "0 errors; existing WhatIf effect cleanup warning",
+    "desktop_and_mobile": "1440x900 and 390x844, no page overflow",
+    "browser_exceptions": 0,
+    "functional": [
+      "scored and range filters",
+      "rulebook scenario draft and discard",
+      "live scoring denominator",
+      "what-if recompute and reset",
+      "override +5 limit and required reason",
+      "portfolio 3D and flat views",
+      "concentration focus",
+      "peril-tagged pin filtering",
+      "map sources disclosure",
+      "map renders with external requests blocked",
+      "SVG fallback with WebGL disabled and case 138 link"
+    ]
+  },
+  "changes_do_not": [
+    "invent wider intervals",
+    "change underwriting rules",
+    "send broker messages",
+    "replace recorded case data"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "caseId": "143",
+  "kind": "commercial",
+  "title": "Aperture Cloud Corp",
+  "facts": [
+    { "id": "tiv", "label": "TIV", "display": "$26,254,000", "provenance": "known", "source": "Insured.hq → 1 building, Seattle WA" },
+    { "id": "premium", "label": "Premium", "display": "missing", "provenance": "missing", "source": "open submissions carry no premium", "resolver": "broker" },
+    { "id": "year_built", "label": "Year built", "display": "2010", "provenance": "known", "source": "Building via Insured.hq" },
+    { "id": "state", "label": "State", "display": "WA", "provenance": "known", "source": "hq location" },
+    { "id": "business_type", "label": "Business type", "display": "renewal?", "provenance": "estimated", "source": "PR-2026-1031 quoted 2025-11-25, after 143 was received 2025-08-19", "resolver": "broker" }
+  ],
+  "factors": [
+    { "fact": "state", "possible": ["not_acceptable"], "valueText": "WA", "provenance": "known" },
+    { "fact": "business_type", "possible": ["target", "not_acceptable"], "valueText": "renewal?", "provenance": "estimated" }
+  ],
+  "score": { "lo": 22, "hi": 47 },
+  "scoreWithoutEnrichment": { "lo": 23, "hi": 48 },
+  "decision": { "kind": "decline", "because": ["state:WA not_acceptable"], "by": "desk" },
+  "risk": { "factors": [{ "peril": "earthquake", "line": "tagged earthquake", "applied": 1.1, "capped": true, "source": "Location hazard_tags", "citation": "Location.hazard_tags" }], "total": 1.1, "totalCapped": true, "skipped": [] },
+  "contradictions": [{ "good": ["submitted as new business"], "bad": ["insured bound PR-2026-1031 on 2025-12-11"], "resolve": ["ask the broker whether 143 is stale"] }],
+  "explanation": "Washington property outside the 2025 state list. The insured bound PR-2026-1031 on 2025-12-11, after 143 was received, so 143 looks stale or duplicate. Decline and ask the broker to withdraw it.",
+  "explanationVerified": true,
+  "issues": [{ "kind": "stale_submission", "severity": "block", "text": "Later policy PR-2026-1031 bound for the same insured" }],
+  "actions": [],
+  "site": { "lat": 47.548, "lng": -122.32 }
+}

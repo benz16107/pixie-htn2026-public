@@ -1,0 +1,38 @@
+[project]
+name = "atlas-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Ben Zhou", email = "benz16107@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "elasticsearch>=9.1.0,<10",
+    "fastapi>=0.141.1",
+    "h3>=4.5.0",
+    "httpx>=0.28.1",
+    "openai>=3.16.2",
+    "openai-agents>=0.22.3",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.3",
+    "pyyaml>=6.0.3",
+    "sentry-sdk>=2.69.2",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[project.scripts]
+atlas-api = "atlas_api:main"
+atlas = "atlas_api.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.11,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "../eval"]

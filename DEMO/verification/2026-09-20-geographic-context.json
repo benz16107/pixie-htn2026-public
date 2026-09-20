@@ -1,0 +1,43 @@
+{
+  "date": "2026-09-20",
+  "countyCount": 3109,
+  "climateSites": 21,
+  "countyMatches": 16,
+  "countySourceVersion": [
+    "December 2025"
+  ],
+  "climatePeriod": "2001-2020",
+  "countyMetrics": [
+    "heat",
+    "flood",
+    "coastal",
+    "wind",
+    "hurricane",
+    "wildfire",
+    "quake",
+    "density"
+  ],
+  "siteMetrics": [
+    "humidity",
+    "temperature",
+    "rain"
+  ],
+  "validation": "Existing historical report retained. Layout reordered and interval columns show both bounds. New geographic layers excluded from scoring and historical validation.",
+  "checks": {
+    "conversionUnitTests": 5,
+    "snapshotFeatureIdsUnique": true,
+    "snapshotGeometryCountMatches": true,
+    "monthlySeriesHave12Entries": true,
+    "negativeHazardSentinelsExcluded": true,
+    "productionBuild": "passed",
+    "typescript": "passed",
+    "targetedEslint": "passed",
+    "desktopBrowser": "all layers, search, submission selection, missing county, seasonal chart selection, monthly table, exposure controls, case context, validation details",
+    "mobileBrowser": "390 px, no page overflow",
+    "scope": "No rules, claim estimates or scores changed. No messages sent.",
+    "runtimePageErrors": [],
+    "offline": "County and climate layers render with external requests blocked",
+    "picking": "County and submission clicks passed in WebGL and static SVG fallback"
+  },
+  "liveUrl": "http://macserver:3100/map?layer=heat&site=126"
+}

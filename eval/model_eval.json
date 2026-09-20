@@ -1,0 +1,83 @@
+{
+  "cases": [
+    "115",
+    "123",
+    "126",
+    "133",
+    "134",
+    "138",
+    "141",
+    "143"
+  ],
+  "answerKey": "eval/answer_key.yaml",
+  "tiers": [
+    {
+      "tier": "engine (no model)",
+      "available": true,
+      "n": 8,
+      "agreed": 8,
+      "accuracy": 1.0,
+      "costUsd": 0.0,
+      "seconds": 0.0,
+      "modelCalls": 0,
+      "rows": [
+        {
+          "caseId": "115",
+          "verdict": "decline",
+          "tier": "decline",
+          "expected": "decline",
+          "agrees": true
+        },
+        {
+          "caseId": "123",
+          "verdict": "routed",
+          "tier": "routed",
+          "expected": "routed",
+          "agrees": true
+        },
+        {
+          "caseId": "126",
+          "verdict": "decline",
+          "tier": "decline",
+          "expected": "decline",
+          "agrees": true
+        },
+        {
+          "caseId": "133",
+          "verdict": "decline",
+          "tier": "decline",
+          "expected": "decline",
+          "agrees": true
+        },
+        {
+          "caseId": "134",
+          "verdict": "decline",
+          "tier": "decline",
+          "expected": "decline",
+          "agrees": true
+        },
+        {
+          "caseId": "138",
+          "verdict": "open",
+          "tier": "open",
+          "expected": "open",
+          "agrees": true
+        },
+        {
+          "caseId": "141",
+          "verdict": "decline",
+          "tier": "decline",
+          "expected": "decline",
+          "agrees": true
+        },
+        {
+          "caseId": "143",
+          "verdict": "decline",
+          "tier": "decline",
+          "expected": "decline",
+          "agrees": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "datasets": {
+    "basement_flooding_study_areas": {
+      "bytes": 1231283,
+      "fetched_at": "2026-09-19T21:17:22+00:00",
+      "raw_file": "raw/basement_flooding_study_areas.geojson",
+      "rows": 67,
+      "sample_rows": null,
+      "source_url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/5db3bfca-9df0-45fa-811c-de1561b124e6/resource/aad79898-9658-4adc-991f-5feb5008db58/download/basement-flooding-study-areas-4326.geojson",
+      "status": "ok"
+    },
+    "break_and_enter_2023_onward": {
+      "bytes": 19864076,
+      "fetched_at": "2026-09-19T21:17:22+00:00",
+      "raw_file": "raw/break_and_enter_2023_onward.geojson",
+      "rows": 23641,
+      "sample_rows": null,
+      "source_url": "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Break_and_Enter_Open_Data/FeatureServer/0/query",
+      "status": "ok"
+    },
+    "fire_hydrants": {
+      "bytes": 18764561,
+      "fetched_at": "2026-09-19T21:17:22+00:00",
+      "raw_file": "raw/fire_hydrants.geojson",
+      "rows": 42947,
+      "sample_rows": null,
+      "source_url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/fbfcf7fa-1026-4b29-bff6-0765ca3f8a54/resource/cd55f67c-31c0-4400-8abd-fb239e55a119/download/fire-hydrants-data-4326.geojson",
+      "status": "ok"
+    },
+    "fire_stations": {
+      "bytes": 42997,
+      "fetched_at": "2026-09-19T21:17:22+00:00",
+      "raw_file": "raw/fire_stations.geojson",
+      "rows": 85,
+      "sample_rows": null,
+      "source_url": "https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/a6ce5495-8e2b-421a-ab11-964569416f31/resource/4a9bb96b-da5e-4c67-aaf4-3f8f4f311430/download/fire-station-locations-4326.geojson",
+      "status": "ok"
+    },
+    "trca_floodline": {
+      "bytes": 59276182,
+      "fetched_at": "2026-09-19T21:17:22+00:00",
+      "raw_file": "raw/trca_floodline.full.geojson",
+      "rows": 1301,
+      "sample_file": "raw/trca_floodline.sample.geojson",
+      "sample_rows": 100,
+      "source_url": "https://services1.arcgis.com/d0ZCwU7eGKVeNiEE/arcgis/rest/services/Floodline_TRCA_Polygon/FeatureServer/1/query",
+      "status": "ok"
+    }
+  },
+  "fetched_at": "2026-09-19T21:17:22+00:00"
+}

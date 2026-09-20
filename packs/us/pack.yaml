@@ -1,0 +1,17 @@
+id: us-property-public-hazards-2026
+units: multipliers
+perils:
+  flood: {floor: 1.00, cap: 1.10}
+  earthquake: {floor: 1.00, cap: 1.06}
+  wildfire: {floor: 1.00, cap: 1.10}
+  severe_weather: {floor: 1.00, cap: 1.06}
+total: {floor: 0.85, cap: 1.25}
+thresholds:
+  earthquake_count: {medium: 1, high: 5}
+  wildfire_value: {medium: 100, high: 300}
+  severe_weather_days: {medium: 5, high: 15}
+sources:
+  - FEMA reduced flood hazard layer
+  - USGS earthquakes M4+ within 50 km, 1994-2023
+  - USFS Wildfire Hazard Potential
+  - Open-Meteo 2023 archive

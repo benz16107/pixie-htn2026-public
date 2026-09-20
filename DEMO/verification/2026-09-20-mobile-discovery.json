@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-20",
+  "scope": "Intact Expo mobile discovery",
+  "checks": {
+    "typescript": "passed",
+    "expo_doctor": "21/21 passed",
+    "web_export": "20 static routes",
+    "ios_export": "JavaScript/Hermes bundle exported, no device build",
+    "inventory_unit_tests": "4 passed",
+    "browser": {
+      "inventory": "Photo selection, reload persistence, edit, delete, sub-cent rejection, and storage failure tested",
+      "home": "Inventory-derived contents preserved through address selection; price changed; saved deductible verified",
+      "auto": "Price change, saved deductible, and reopening with the new baseline verified",
+      "budget": "Budget buttons and touch slider changed matching-car count",
+      "offline": "Cached tenant prices blocked in explorer; retry restored live estimate",
+      "responsive_widths": [
+        320,
+        390,
+        430
+      ],
+      "page_errors": []
+    }
+  },
+  "limitations": [
+    "Physical iPhone camera and native file persistence not verified",
+    "Web screenshots show browser-rendered Expo screens",
+    "Estimates and vehicle listings are illustrative; no application is submitted",
+    "Native development build must include the added picker and filesystem modules"
+  ]
+}

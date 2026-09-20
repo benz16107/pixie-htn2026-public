@@ -1,0 +1,29 @@
+id: tenant_2026
+kind: tenant
+thresholds: {decline: 45, accept: 70}
+hard_fail_cap: 30
+points: {target: 2, acceptable: 1, not_acceptable: 0}
+required:
+  water_referral: applicant unit level, water add-on, and region-pack study-area lookup
+  claims_5yr: applicant answer
+pricing:
+  base_annual_cents: 15000
+  base_contents: 20000
+  contents_per_1000_cents: 400
+  liability_2m_cents: 1200
+  sewer_backup_cents: 4000
+  deductible_multipliers: {500: 1.12, 1000: 1.00, 2500: 0.88}
+  one_claim_multiplier: 1.08
+  bundle_multiplier: 0.90
+
+factors:
+  - fact: water_referral
+    hard_fail: true
+    bands:
+      acceptable: {eq: false}
+      not_acceptable: {eq: true}
+  - fact: claims_5yr
+    hard_fail: true
+    bands:
+      acceptable: {lte: 1}
+      not_acceptable: {gte: 2}

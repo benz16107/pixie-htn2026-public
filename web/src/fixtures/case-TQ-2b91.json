@@ -1,0 +1,165 @@
+{
+ "caseId": "TQ-2b91",
+ "kind": "tenant",
+ "title": "1100 Queen St W, Toronto",
+ "facts": [
+  {
+   "id": "address",
+   "label": "Address",
+   "display": "1100 Queen St W",
+   "provenance": "known",
+   "source": "Nominatim geocode, 43.6435, -79.4229"
+  },
+  {
+   "id": "unit_level",
+   "label": "Unit level",
+   "display": "Upper floor",
+   "provenance": "known",
+   "source": "applicant answer"
+  },
+  {
+   "id": "contents",
+   "label": "Contents value",
+   "display": "$25,000",
+   "provenance": "known",
+   "source": "applicant answer"
+  },
+  {
+   "id": "deductible",
+   "label": "Deductible",
+   "display": "$1,000",
+   "provenance": "known",
+   "source": "applicant choice"
+  },
+  {
+   "id": "liability",
+   "label": "Liability",
+   "display": "$2M",
+   "provenance": "known",
+   "source": "applicant choice"
+  },
+  {
+   "id": "claims_3yr",
+   "label": "Claims, 3 yr",
+   "display": "0",
+   "provenance": "known",
+   "source": "applicant answer"
+  },
+  {
+   "id": "hex",
+   "label": "H3 cell",
+   "display": "892b9bc550bffff",
+   "provenance": "known",
+   "source": "res 9 cell of the geocoded point"
+  }
+ ],
+ "factors": [
+  {
+   "fact": "unit_level",
+   "possible": [
+    "target"
+   ],
+   "valueText": "upper",
+   "provenance": "known"
+  },
+  {
+   "fact": "claims_3yr",
+   "possible": [
+    "target"
+   ],
+   "valueText": "0",
+   "provenance": "known"
+  }
+ ],
+ "score": {
+  "lo": 76,
+  "hi": 84
+ },
+ "scoreWithoutEnrichment": {
+  "lo": 78,
+  "hi": 86
+ },
+ "decision": {
+  "kind": "approve",
+  "because": [
+   "Upper unit, so the basement flooding area BFA42 does not apply",
+   "No claims in the last 3 years"
+  ],
+  "by": "desk"
+ },
+ "risk": {
+  "factors": [
+   {
+    "peril": "break-ins_near_you",
+    "line": "Break-ins near you",
+    "applied": 1.093,
+    "capped": false,
+    "source": "TPS Break and Enter 2023-2026",
+    "citation": "TPS Break and Enter 2023-2026: 95 within one cell ring of 892b9bc550bffff, percentile 95 of Toronto cells"
+   }
+  ],
+  "total": 1.093,
+  "totalCapped": false,
+  "skipped": [
+   [
+    "fire_protection",
+    "Toronto Fire Stations: nearest 1.1 km; hydrant within 150 m: yes"
+   ],
+   [
+    "basement_flooding",
+    "Toronto basement flooding study area BFA42; upper unit, not applied"
+   ]
+  ]
+ },
+ "contradictions": [],
+ "explanation": "Upper unit, so the basement flooding area BFA42 does not apply No claims in the last 3 years. Estimate $198.93 a year. Send this summary to a licensed advisor to turn it into a real quote.",
+ "explanationVerified": true,
+ "issues": [],
+ "actions": [],
+ "site": {
+  "lat": 43.6434853,
+  "lng": -79.4228957
+ },
+ "receipt": {
+  "base": 150.0,
+  "annual": 198.93,
+  "label": "Illustrative. Our documented model, not an Intact price or offer.",
+  "lines": [
+   {
+    "label": "Contents $25,000",
+    "multiplier": 1.133,
+    "dollars": 20.0,
+    "capped": false,
+    "source": "your answer; +$4 per $1,000 over $20,000 (invented constant)"
+   },
+   {
+    "label": "$2M liability",
+    "multiplier": 1.071,
+    "dollars": 12.0,
+    "capped": false,
+    "source": "your answer; invented constant"
+   },
+   {
+    "label": "Break-ins near you",
+    "multiplier": 1.093,
+    "dollars": 16.93,
+    "capped": false,
+    "source": "TPS Break and Enter 2023-2026: 95 within one cell ring of 892b9bc550bffff, percentile 95 of Toronto cells"
+   },
+   {
+    "label": "Fire protection",
+    "multiplier": 1.0,
+    "dollars": 0.0,
+    "capped": false,
+    "source": "Toronto Fire Stations: nearest 1.1 km; hydrant within 150 m: yes"
+   },
+   {
+    "label": "Basement flooding",
+    "multiplier": 1.0,
+    "dollars": 0.0,
+    "capped": false,
+    "source": "Toronto basement flooding study area BFA42; upper unit, not applied"
+   }
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+[project]
+name = "pixie-mcp"
+version = "0.1.0"
+description = "Privacy-limited MCP tools for Pixie's illustrative consumer insurance demo"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "atlas-api",
+    "mcp>=2.2.0,<3",
+]
+
+[project.scripts]
+pixie-mcp = "pixie_mcp.server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.11,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+atlas-api = { path = "../api", editable = true }

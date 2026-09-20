@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-20",
+  "rootCause": "Metro resolved driving-surfaces.ts before driving-surfaces.ios.tsx; no native layouts were registered.",
+  "before": {
+    "iosBundleAdapter": "lib/driving-surfaces.ts",
+    "resolverRegression": "failed"
+  },
+  "after": {
+    "iosBundleAdapter": "lib/driving-surfaces.ios.tsx",
+    "layoutModule": "lib/driving-widgets.ios.tsx",
+    "widgetRegressionTests": {
+      "passed": 9,
+      "failed": 0
+    },
+    "appTypecheck": "passed",
+    "mcpProtocolTests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "liveMcpToolCount": 9,
+    "liveTenantCall": "passed",
+    "webProductionBuild": "passed with webpack; isolated node_modules symlink is incompatible with Turbopack",
+    "browser": {
+      "sampleDriveStartStop": true,
+      "tenantMcpCall": true,
+      "vehicleMcpCall": true,
+      "updatedPresentationNotes": true,
+      "pageErrors": []
+    }
+  },
+  "deviceRendering": "User confirmed Both now display after reloading the installed Pixie app and running the Toronto sample on the iPhone. No simulator was used.",
+  "recording": "docs/assets/intact/video/mcp-inspector.webm",
+  "finalVideo": "Script and capture plan updated. Silent MCP browser source footage recorded. Final narrated video not rendered."
+}

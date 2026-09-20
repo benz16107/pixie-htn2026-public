@@ -1,0 +1,47 @@
+{
+  "caseId": "138",
+  "kind": "commercial",
+  "title": "Lumen Data Works Inc",
+  "facts": [
+    { "id": "tiv", "label": "TIV", "display": "$2,073,000", "provenance": "known", "source": "Insured.hq → Location 19 → 1 building (Plant A)" },
+    { "id": "premium", "label": "Premium", "display": "est. $6,020–$10,317", "provenance": "missing", "source": "p25–p75 rate × TIV, 27 bound property comps", "resolver": "broker" },
+    { "id": "year_built", "label": "Year built", "display": "2023", "provenance": "known", "source": "Building 35 via Insured.hq" },
+    { "id": "construction", "label": "Construction", "display": "Masonry non-combustible", "provenance": "known", "source": "Building 35 via Insured.hq" },
+    { "id": "state", "label": "State", "display": "FL", "provenance": "known", "source": "Location 19, Miami-Dade" },
+    { "id": "sprinklered", "label": "Sprinklered", "display": "No", "provenance": "known", "source": "Building 35" },
+    { "id": "loss_5yr", "label": "Loss history 5 yr", "display": "no property policy", "provenance": "estimated", "source": "9 claims on 4 other-line policies; none on property" },
+    { "id": "business_type", "label": "Business type", "display": "New", "provenance": "estimated", "source": "no prior property policy for insured 7" }
+  ],
+  "factors": [
+    { "fact": "state", "possible": ["target"], "valueText": "FL", "provenance": "known" },
+    { "fact": "year_built", "possible": ["target"], "valueText": "2023", "provenance": "known" },
+    { "fact": "construction", "possible": ["target"], "valueText": "Masonry non-combustible", "provenance": "known" },
+    { "fact": "tiv", "possible": ["target"], "valueText": "$2,073,000", "provenance": "known" },
+    { "fact": "premium", "possible": ["target", "acceptable", "not_acceptable"], "valueText": "missing (est. $6,020–$10,317)", "provenance": "missing" },
+    { "fact": "loss_5yr", "possible": ["target", "acceptable"], "valueText": "no property policy", "provenance": "estimated" }
+  ],
+  "score": { "lo": 54, "hi": 81 },
+  "scoreWithoutEnrichment": { "lo": 57, "hi": 84 },
+  "decision": { "kind": "open", "straddles": 70, "flippers": [{ "fact": "premium", "resolver": "broker" }] },
+  "risk": {
+    "factors": [
+      { "peril": "flood", "line": "FEMA zone AE, 1% annual chance", "applied": 1.12, "capped": false, "source": "Esri / FEMA NFHL", "citation": "https://hazards.fema.gov/femaportal/wps/portal/NFHLWMS" },
+      { "peril": "wind", "line": "6 gust days over 90 km/h", "applied": 1.06, "capped": false, "source": "Open-Meteo 2023", "citation": "https://open-meteo.com/en/docs/historical-weather-api" },
+      { "peril": "protection", "line": "Protection class 8", "applied": 1.04, "capped": false, "source": "Location 19", "citation": "Location.protection_class" }
+    ],
+    "total": 1.23,
+    "totalCapped": false,
+    "skipped": [["earthquake", "USGS M4+ within 50 km: none in FL, lookup skipped"], ["wildfire", "not tagged for Location 19"]]
+  },
+  "portfolio": { "line": "Adds $2,073,000 near 2 active property locations that already hold $57,354,000 within 30 km", "points": -6, "neighbourhoodTiv": 57354000, "threshold": 50000000 },
+  "contradictions": [
+    { "good": ["2023 masonry non-combustible", "FL is a target state"], "bad": ["FEMA zone AE", "not sprinklered"], "resolve": ["flood deductible from broker", "sprinkler plans"] }
+  ],
+  "explanation": "Florida property, built 2023, masonry non-combustible, TIV $2,073,000, all within appetite. Premium is missing; the estimate ($6,020–$10,317) straddles the 70 threshold, and the site sits in FEMA zone AE near $57,354,000 we already hold. Refer and request the premium from the broker.",
+  "explanationVerified": true,
+  "issues": [
+    { "kind": "premium_missing", "severity": "warn", "text": "Open submissions carry no premium; estimate from 27 comparables" }
+  ],
+  "actions": [],
+  "site": { "lat": 25.644, "lng": -80.207 }
+}

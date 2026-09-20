@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-20",
+  "scope": "Intact Home and Auto lifecycle",
+  "checks": {
+    "apiTests": "149 passed",
+    "mcpTests": "6 passed",
+    "webLint": "passed with pre-existing vendored MapLibre warnings",
+    "webProductionBuild": "passed",
+    "expoTypeScript": "passed",
+    "expoPublicConfig": "passed",
+    "expoWebExport": "19 static routes exported",
+    "sharedWebRoutes": "Intact overview and advisor desk returned HTTP 200 through localhost, macserver, and Tailscale",
+    "drivingContextContract": "returned a coaching-only result with no stored or returned coordinates"
+  },
+  "limits": [
+    "The iOS widget, Live Activity, and Expo UI controls require a native development build and were not run on a device in this environment.",
+    "Home pricing covers tenant insurance only.",
+    "Auto listings, auto prices, and route context zones are synthetic demonstration data.",
+    "Recovery prepares a local plan and PDF but does not upload evidence or submit a claim."
+  ]
+}
