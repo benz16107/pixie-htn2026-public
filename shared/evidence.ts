@@ -49,6 +49,11 @@ export type RoadIncident = {
 };
 export function evidenceClient(base: string) {
   async function call<T>(path: string, body?: unknown): Promise<T> {
+    if (!base) {
+      throw new Error(
+        "The evidence service is unavailable in this public preview.",
+      );
+    }
     const response = await fetch(`${base}/consumer/incidents${path}`, {
       method: body === undefined ? "GET" : "POST",
       headers: { "Content-Type": "application/json" },
@@ -89,7 +94,8 @@ export function evidenceClient(base: string) {
       }),
     status: (id: string, status: RoadIncident["status"], note: string) =>
       call<RoadIncident>(`/${id}/status`, { status, note }),
-    media: (item: Evidence) => `${base}${item.mediaPath}`,
-    export: (id: string) => `${base}/consumer/incidents/${id}/export`,
+    media: (item: Evidence) => (base ? `${base}${item.mediaPath}` : ""),
+    export: (id: string) =>
+      base ? `${base}/consumer/incidents/${id}/export` : "",
   };
 }

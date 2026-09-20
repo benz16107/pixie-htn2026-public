@@ -5,7 +5,7 @@ export type {
   EvidenceRole,
 } from "../../shared/evidence";
 export const roadAPI = evidenceClient(
-  process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:8000",
+  process.env.EXPO_PUBLIC_API_URL || "",
 );
 export type RoadDevice = {
   clientId: string;
